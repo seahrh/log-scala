@@ -1,7 +1,9 @@
-package com.sgcharts.log
+package com.sgcharts.time
 
 import System.nanoTime
+
 import scala.concurrent.duration.{Duration, DurationLong}
+import scala.language.postfixOps
 
 package object s {
 
