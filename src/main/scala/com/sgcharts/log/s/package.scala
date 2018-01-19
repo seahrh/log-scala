@@ -1,15 +1,19 @@
 package com.sgcharts.log
 
 import System.nanoTime
+import scala.concurrent.duration.{Duration, DurationLong}
 
-package object scala {
+package object s {
 
   /**
     * Based on https://stackoverflow.com/a/14574121/519951
+    *
     * @param code code block to run
-    * @param t start time
+    * @param t    start time
     * @tparam R return type of code block
     * @return 2-item tuple: result of code block and time elapsed in nanoseconds
     */
-  def timed[R](code: => R, t: Long = nanoTime): (R, Long) = (code, nanoTime - t)
+  def timed[R](code: => R, t: Long = nanoTime): (R, Duration) = {
+    (code, (nanoTime - t) nanoseconds)
+  }
 }
